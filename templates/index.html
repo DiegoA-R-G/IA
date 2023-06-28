@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabores Preferidos!</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="col-7 card mt-4 p-4 m-auto">
+
+        <!-- <div class="alert alert-success" role="alert">
+            <p>El jugo recomendado para ti es: {{ jugo_recomendado }}</p>
+        </div> -->
+        {% if jugo_recomendado == "No se encontró una recomendación de jugo" %}
+        <div class="alert alert-danger" role="alert">
+            <p>{{ jugo_recomendado }}</p>
+        </div>
+        {% elif jugo_recomendado %}
+        <div class="alert alert-success" role="alert">
+            <p>El jugo recomendado para ti es: {{ jugo_recomendado }}</p>
+        </div>
+        {% endif %}
+
+
+        <form action="{{ url_for('inicio') }}" method="post">
+
+            <div class="mb-3 ">
+                <label for="Jugo" class="form-label">¿Cual es tu Jugo favorito?</label>
+                <select name="Jugo" id="Jugo" class="form-control">
+                    <option value="0">Seleccione un jugo</option>
+                    <option value="1">Uva</option>
+                    <option value="2">Sandía</option>
+                    <option value="3">Piña</option>
+                    <option value="4">Pera</option>
+                    <option value="5">Naranja</option>
+                    <option value="6">Melocotón</option>
+                    <option value="7">Maracuyá</option>
+                    <option value="8">Manzana</option>
+                    <option value="9">Mandarina</option>
+                    <option value="10">Limón</option>
+                    <option value="11">Kiwi</option>
+                    <option value="12">Guayaba</option>
+                    <option value="13">Fresa</option>
+                    <option value="14">Frambuesa</option>
+                    <option value="15">Durazno</option>
+                    <option value="16">Durazno</option>
+                    <option value="17">Mango</option>
+                    <option value="18">Cereza</option>
+                </select>
+            </div>
+            <div class="mb-3 ">
+                <label for="Textura" class="form-label">¿Cual es la Textura favorita en tu jugo?</label>
+                <select id="Textura" name="Textura" class="form-control">
+                    <option value="0">Seleccione un tipo de textura</option>
+                    <option value="1">Cremosa</option>
+                    <option value="2">Crispy</option>
+                    <option value="3">Suave</option>
+                    <option value="4">Refrescante</option>
+                    <option value="5">Pulposo</option>
+                    <option value="6">Jugosa</option>
+                    <option value="7">Gelatinosa</option>
+                    <option value="8">Fibrosa</option>
+                    <option value="9">Pulposa</option>
+                </select>
+            </div>
+            <div class="mb-3 ">
+                <label for="Sabor" class="form-label">¿Cual es tu Sabor favoruto en tu jugo?</label>
+                <select id="Sabor" name="Sabor" class="form-control">
+                    <option value="0">Seleccione un tipo de sabor</option>
+                    <option value="1">Dulce</option>
+                    <option value="2">Ácido</option>
+                    <option value="3">Tropical</option>
+                    <option value="4">Intenso</option>
+                    <option value="5">Exótico</option>
+                    <option value="6">Jugoso</option>
+                    <option value="7">Ligero</option>
+                    <option value="8">Refrescante</option>
+                    <option value="9">Natural</option>
+                    <option value="10">Cítrico</option>
+                    <option value="11">Agrio</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</body>
+
+</html>
